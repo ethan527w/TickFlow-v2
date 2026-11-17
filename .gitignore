@@ -1,0 +1,14 @@
+# IDE & Editor settings
+.vscode/
+
+# Verilator & Simulation artifacts
+tb/obj_dir/
+tb/*.vcd
+tb/*.fst
+
+# Vivado & FPGA synthesis artifacts
+*.log
+*.jou
+*.str
+.Xil/
+vivado_pid*.debug
