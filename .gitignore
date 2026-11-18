@@ -2,7 +2,7 @@
 .vscode/
 
 # Verilator & Simulation artifacts
-tb/obj_dir/
+tb/obj_*/
 tb/*.vcd
 tb/*.fst
 
