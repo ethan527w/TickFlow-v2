@@ -1,16 +1,14 @@
-TOP_MODULE = axis_skid_buffer
-RTL_SRCS   = ../rtl/common/axis_skid_buffer.sv
-TB_SRC     = tb_skid_buffer.cpp
+VERILATOR_FLAGS = -Wall --cc --exe --build --trace -j 0
 
-sim:
-	verilator -Wall --cc --exe --build --trace \
-		-j 0 \
-		--top-module $(TOP_MODULE) \
-		$(RTL_SRCS) $(TB_SRC)
-	./obj_dir/V$(TOP_MODULE)
+.PHONY: skid gearbox clean
 
-wave:
-	gtkwave dump.vcd &
+skid:
+	verilator $(VERILATOR_FLAGS) ../rtl/common/axis_skid_buffer.sv tb_skid_buffer.cpp -o sim_skid
+	./obj_dir/sim_skid
+
+gearbox:
+	verilator $(VERILATOR_FLAGS) ../rtl/common/axis_gearbox_8_to_64.sv tb_gearbox_8_to_64.cpp -o sim_gearbox
+	./obj_dir/sim_gearbox
 
 clean:
-	rm -rf obj_dir dump.vcd
+	rm -rf obj_dir *.vcd
