@@ -30,8 +30,10 @@ module eth_ipv4_udp_parser #(
 
   state_e curr_state, next_state;
   logic [ 2:0] beat_cnt;
+  /* verilator lint_off UNUSEDSIGNAL */
   logic [63:0] skid_data;
   logic [ 7:0] skid_keep;
+  /* verilator lint_off UNUSEDSIGNAL */
   logic m_fire, s_fire;
 
   assign m_fire = m_tready && m_tvalid;
