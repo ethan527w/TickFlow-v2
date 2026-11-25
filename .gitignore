@@ -12,3 +12,6 @@ tb/*.fst
 *.str
 .Xil/
 vivado_pid*.debug
+
+# templates
+docs/template
